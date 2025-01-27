@@ -303,7 +303,7 @@ function ContactMethodDetailsPage({route}: ContactMethodDetailsPageProps) {
                         setIsValidateCodeActionModalVisible(false);
                     }}
                     sendValidateCode={() => requestContactMethodValidateCode(contactMethod)}
-                    descriptionPrimary={translate('contacts.enterMagicCode', {contactMethod: formattedContactMethod})}
+                    descriptionPrimary={translate('common.enterMagicCode', {contactMethod: formattedContactMethod})}
                     onThreeDotsButtonPress={() => {
                         // Hide the keyboard when the user clicks the three-dot menu.
                         // Use blurActiveElement() for mWeb and KeyboardUtils.dismiss() for native apps.
