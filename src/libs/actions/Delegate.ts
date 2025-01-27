@@ -14,10 +14,13 @@ import type {Delegate, DelegatedAccess, DelegateRole} from '@src/types/onyx/Acco
 import type Credentials from '@src/types/onyx/Credentials';
 import type Response from '@src/types/onyx/Response';
 import type Session from '@src/types/onyx/Session';
+import type {LoginList} from '@src/types/onyx/Login';
 import {confirmReadyToOpenApp, openApp} from './App';
 import {getCurrentUserAccountID} from './Report';
 import updateSessionAuthTokens from './Session/updateSessionAuthTokens';
 import updateSessionUser from './Session/updateSessionUser';
+import DateUtils from '@libs/DateUtils';
+import * as UserUtils from '@libs/UserUtils';
 
 let delegatedAccess: DelegatedAccess;
 Onyx.connect({
@@ -49,6 +52,12 @@ let stashedSession: Session = {};
 Onyx.connect({
     key: ONYXKEYS.STASHED_SESSION,
     callback: (value) => (stashedSession = value ?? {}),
+});
+
+let loginList: LoginList = {};
+Onyx.connect({
+    key: ONYXKEYS.LOGIN_LIST,
+    callback: (value) => (loginList = value ?? {}),
 });
 
 let activePolicyID: OnyxEntry<string>;
@@ -301,6 +310,7 @@ function addDelegate(email: string, role: DelegateRole, validateCode: string) {
                         },
                     },
                 },
+                validated: true,
                 isLoading: true,
             },
         },
@@ -349,10 +359,26 @@ function addDelegate(email: string, role: DelegateRole, validateCode: string) {
                         },
                     },
                 },
+                validated: true,
                 isLoading: false,
             },
         },
     ];
+
+    UserUtils.isCurrentUserValidated(loginList);
+    if (!UserUtils.isCurrentUserValidated(loginList) && session.email) {
+        successData.push(
+            {
+                onyxMethod: Onyx.METHOD.MERGE,
+                key: ONYXKEYS.LOGIN_LIST,
+                value: {
+                    [session.email]: {
+                        validatedDate: DateUtils.getDBTime(),
+                    }
+                }
+            },
+        );
+    }
 
     const failureDelegateData = (): Delegate[] => {
         if (existingDelegate) {
