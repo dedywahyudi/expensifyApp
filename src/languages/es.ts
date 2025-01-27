@@ -488,6 +488,9 @@ const translations = {
         subrate: 'Subtasa',
         perDiem: 'Per diem',
         validate: 'Validar',
+        validateAccount: 'Valida tu cuenta',
+        featureRequiresValidate: 'Esta función requiere que valides tu cuenta.',
+        enterMagicCode: ({contactMethod}: EnterMagicCodeParams) => `Por favor, introduce el código mágico enviado a ${contactMethod}. Debería llegar en un par de minutos.`,
     },
     supportalNoAccess: {
         title: 'No tan rápido',
@@ -1170,13 +1173,10 @@ const translations = {
     contacts: {
         contactMethod: 'Método de contacto',
         contactMethods: 'Métodos de contacto',
-        featureRequiresValidate: 'Esta función requiere que valides tu cuenta.',
-        validateAccount: 'Valida tu cuenta',
         helpTextBeforeEmail: 'Añade más formas de que la gente te encuentre y reenvía los recibos a ',
         helpTextAfterEmail: ' desde varias direcciones de correo electrónico.',
         pleaseVerify: 'Por favor, verifica este método de contacto',
         getInTouch: 'Utilizaremos este método de contacto cuando necesitemos contactarte.',
-        enterMagicCode: ({contactMethod}: EnterMagicCodeParams) => `Por favor, introduce el código mágico enviado a ${contactMethod}. Debería llegar en un par de minutos.`,
         setAsDefault: 'Establecer como predeterminado',
         yourDefaultContactMethod:
             'Este es tu método de contacto predeterminado. Antes de poder eliminarlo, tendrás que elegir otro método de contacto y haz clic en "Establecer como predeterminado".',
