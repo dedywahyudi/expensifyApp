@@ -177,9 +177,9 @@ function CodesStep({backTo}: CodesStepProps) {
                 </FixedFooter>
             </ScrollView>
             <ValidateCodeActionModal
-                title={translate('contacts.validateAccount')}
-                descriptionPrimary={translate('contacts.featureRequiresValidate')}
-                descriptionSecondary={translate('contacts.enterMagicCode', {contactMethod})}
+                title={translate('common.validateAccount')}
+                descriptionPrimary={translate('common.featureRequiresValidate')}
+                descriptionSecondary={translate('common.enterMagicCode', {contactMethod})}
                 isVisible={isValidateModalVisible}
                 hasMagicCodeBeenSent={hasMagicCodeBeenSent}
                 validatePendingAction={loginData?.pendingFields?.validateCodeSent}

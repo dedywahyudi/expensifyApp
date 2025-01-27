@@ -228,9 +228,9 @@ function BankAccountStep({
                     </View>
                 </ScrollView>
                 <ValidateCodeActionModal
-                    title={translate('contacts.validateAccount')}
-                    descriptionPrimary={translate('contacts.featureRequiresValidate')}
-                    descriptionSecondary={translate('contacts.enterMagicCode', {contactMethod})}
+                    title={translate('common.validateAccount')}
+                    descriptionPrimary={translate('common.featureRequiresValidate')}
+                    descriptionSecondary={translate('common.enterMagicCode', {contactMethod})}
                     isVisible={!!isValidateCodeActionModalVisible}
                     hasMagicCodeBeenSent={hasMagicCodeBeenSent}
                     validatePendingAction={loginData?.pendingFields?.validateCodeSent}

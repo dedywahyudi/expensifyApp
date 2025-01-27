@@ -93,9 +93,9 @@ function VerifyAccountPage({route}: VerifyAccountPageProps) {
             validateError={validateLoginError}
             hasMagicCodeBeenSent={validateCodeAction?.validateCodeSent}
             isVisible={isValidateCodeActionModalVisible}
-            title={translate('contacts.validateAccount')}
-            descriptionPrimary={translate('contacts.featureRequiresValidate')}
-            descriptionSecondary={translate('contacts.enterMagicCode', {contactMethod})}
+            title={translate('common.validateAccount')}
+            descriptionPrimary={translate('common.featureRequiresValidate')}
+            descriptionSecondary={translate('common.enterMagicCode', {contactMethod})}
             clearError={clearError}
             onClose={closeModal}
             onModalHide={() => {}}
