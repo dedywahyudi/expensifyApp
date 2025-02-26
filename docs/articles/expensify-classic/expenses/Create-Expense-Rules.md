@@ -1,61 +1,76 @@
 ---
-title: Create Expense Rules
-description: Automatically categorize, tag, and report expenses based on the merchant's name
+title: Expense Rules
+description: Automatically categorize, tag, and report expenses based on the merchant's name.
 ---
 
-Expense rules allow you to automatically categorize, tag, and report expenses based on the merchant’s name.
+Expense rules in Expensify help automate the categorization, tagging, and reporting of expenses based on merchant names, reducing manual work. By setting up these rules at the account level, employees can streamline expense management and ensure consistency across reports.
 
-# Create expense rules 
+---
 
-1. Hover over **Settings** and click **Account**. 
-2. Click **Expense Rules**.
-2. Click **New Rule**.
-3. Add what the merchant name should contain in order for the rule to be applied. *Note: If you enter just a period, the rule will apply to all expenses regardless of the merchant name. Universal Rules will always take precedence over all other expense rules.*
-4. Choose from the following rules:
-- **Merchant:** Updates the merchant name (e.g., “Starbucks #238” could be changed to “Starbucks”)
-- **Category:** Applies a workspace category to the expense
-- **Tag:** Applies a tag to the expense (e.g., a Department or Location)
-- **Description:** Adds a description to the description field on the expense
-- **Reimbursability:** Determines whether the expense will be marked as reimbursable or non-reimbursable
-- **Billable**: Determines whether the expense is billable
-- **Add to a report named:** Adds the expense to a report with the name you type into the field. If no report with that name exists, a new report will be created if the "Create report if necessary" checkbox is selected. 
+# Create an Expense Rule  
+
+1. Hover over **Settings** and click **Account**.  
+2. Click **Expense Rules**.  
+3. Click **New Rule**.  
+4. In the **Merchant Name Contains** field, enter part of the merchant name that should trigger the rule.  
+   - **Note:** If you enter only a period (`.`), the rule applies to all expenses. Universal Rules take precedence over all other expense rules.  
+5. Select the rules to apply when a matching expense is detected:  
+   - **Merchant:** Standardizes the merchant name (e.g., "Starbucks #238" → "Starbucks").  
+   - **Category:** Assigns a workspace category to the expense.  
+   - **Tag:** Adds a tag (e.g., Department or Location).  
+   - **Description:** Updates the description field of the expense.  
+   - **Reimbursability:** Marks the expense as reimbursable or non-reimbursable.  
+   - **Billable:** Flags the expense as billable.  
+   - **Add to a report named:** Assigns the expense to a specific report. If **Create report if necessary** is selected, a new one is created if the report does not exist.  
 
 ![Fields to create a new expense rule, including the characters a merchant's name should contain for the rule to apply, as well as what changes should be applied to the expense including the merchant name, category, tag, description, reimbursability, whether it is billable, and what report it will be added to.](https://help.expensify.com/assets/images/ExpensifyHelp_ExpenseRules_01.png){:width="100%"}
-  
-{:start="6"}
-6. (Optional) To apply the rule to previously entered expenses, select the **Apply to existing matching expenses** checkbox. You can also click **Preview Matching Expenses** to see if your rule matches the intended expenses.
 
-# How rules are applied
+6. (Optional) Select **Apply to existing matching expenses** to update past expenses.  
+7. Click **Preview Matching Expenses** to check if the rule applies correctly.  
 
-In general, your expense rules will be applied in order, from **top to bottom**, (i.e., from the first rule). However, other settings can impact how expense rules are applied. Here is the hierarchy that determines how these are applied:
+---
 
-1. A Universal Rule will **always** be applied over any other expense category rules. Rules that would otherwise change the expense category will **not** override the Universal Rule.
-2. If Scheduled Submit and the setting “Enforce Default Report Title” are enabled on the workspace, this will take precedence over any rules trying to add the expense to a report.
-3. If the expense is from a company card that is forced to a workspace with strict rule enforcement, those rules will take precedence over individual expense rules.
-4. If you belong to a workspace that is tied to an accounting integration, the configuration settings for this connection may update your expense details upon export, even if the expense rules were successfully applied to the expense.
+# How Rules Are Applied  
 
-# Create an expense rule from changes made to an expense
+Expense rules are processed from **top to bottom** in the list. However, other settings may override them. The Expense Rule hierarchy is:  
 
-If you open an expense and change it, you can then create an expense rule based on those changes by selecting the “Create a rule based on your changes" checkbox. *Note: The expense must be saved, reopened, and edited for this option to appear.*
+1. **Universal Rules** always override other expense category rules.  
+2. **Scheduled Submit** with **Enforce Default Report Title** enabled takes precedence over expense rule-based report assignments.  
+3. **Company Card Rules** for enforced workspaces take priority over individual expense rules.  
+4. **Accounting Integrations** may override expense rule settings when expenses are exported.  
+
+---
+
+# Create an Expense Rule from an Edited Expense  
+
+If you modify an expense manually, you can create a rule based on those changes:  
+
+1. Open the expense.  
+2. Make the necessary edits.  
+3. Select **Create a rule based on your changes** before saving.  
+   - **Note:** The option appears only after saving, reopening, and editing an expense.  
 
 ![The "Create a rule based on your changes" checkbox is located in the bottom right corner of the popup window, to the left of the Save button.](https://help.expensify.com/assets/images/ExpensifyHelp_ExpenseRules_02.png){:width="100%"}
 
-# Delete an expense rule
+---
 
-To delete an expense rule, 
+# Delete an Expense Rule  
 
-1. Hover over **Settings** and click **Account**.
-2. Click **Expense Rules**.
-3. Scroll down to the rule you’d like to remove and click the trash can icon.
+1. Hover over **Settings** and click **Account**.  
+2. Click **Expense Rules**.  
+3. Find the rule you want to remove and click the **Trash** icon.  
 
 ![The Trash icon to delete an expense rule is located at the top right of the box containing the expense rule, to the left of the Edit icon.](https://help.expensify.com/assets/images/ExpensifyHelp_ExpenseRules_03.png){:width="100%"}
 
-{% include faq-begin.md %} 
+---
 
-## How can I use expense rules to vendor match when exporting to an accounting package?
+# FAQ  
 
-When exporting non-reimbursable expenses to your connected accounting package, the payee field will list "Credit Card Misc." if the merchant name on the expense in Expensify is not an exact match to a vendor in the accounting package. When an exact match is unavailable, "Credit Card Misc." prevents multiple variations of the same vendor (e.g., Starbucks and Starbucks #1234, as is often seen in credit card statements) from being created in your accounting package.
+## How can I use expense rules for vendor matching in an accounting integration?  
 
-For repeated expenses, the best practice is to use Expense Rules, which will automatically update the merchant name without having to do it manually each time. This only works for connections to QuickBooks Online, Desktop, and Xero. Vendor matching cannot be performed in this manner for NetSuite or Sage Intacct due to limitations in the API of the accounting package.
+When exporting non-reimbursable expenses, the **Payee** field in the accounting software will show "Credit Card Misc." if there is no exact match for the merchant name. This prevents multiple variations of the same vendor (e.g., "Starbucks" vs. "Starbucks #1234") from being created.  
 
-{% include faq-end.md %}
+To avoid this, use **Expense Rules** to standardize vendor names before export.  
+- **Supported integrations:** QuickBooks Online, QuickBooks Desktop, Xero.  
+- **Not supported for:** NetSuite, Sage Intacct (due to API limitations).  
+
